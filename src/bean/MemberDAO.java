@@ -122,7 +122,7 @@ public class MemberDAO { // member테이블에 crud를 하고 싶으면 MemberDA
 			// URL site = new URL(site);
 
 			// 4. 3번에서 생성된 sql문을 Mysql로 전송
-			result = ps.executeUpdate();
+			result = ps.executeUpdate(); //cud는 결과가 int, 실행된 row수 
 			System.out.println("4. SQL문 mySQL로 전송 성공!!");
 			dbcp.freeConnection(con, ps);
 		} catch (Exception e) { // Exception == Error
