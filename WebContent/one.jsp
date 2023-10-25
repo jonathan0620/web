@@ -1,3 +1,4 @@
+<%@page import="bean.MemberVO"%>
 <%@page import="bean.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -11,12 +12,8 @@
 		String id = request.getParameter("id"); //id=apple   
 		
 		MemberDAO dao = new MemberDAO();
-		int result = dao.delete(id); //1, 0
-		String resultText = "회원탈퇴실패함.";
-		if(result == 1){
-			resultText = "회원탈퇴성공함.";
-		}
-		
+		MemberVO bag = dao.one(id);		
+    	//자동import : 클릭하고 나서 컨트롤 + 쉬프트 + m
     %>
 <!DOCTYPE html>
 <html>
@@ -25,6 +22,10 @@
 <title>Insert title here</title>
 </head>
 <body bgcolor="red">
-<h4><%= resultText %></h4>
+검색해온 id: <%= bag.getId() %> <br>
+검색해온 pw: <%= bag.getPw()%> <br>
+검색해온 name: <%= bag.getName() %> <br>
+검색해온 tel: <%= bag.getTel()%> <br>
+
 </body>
 </html>
